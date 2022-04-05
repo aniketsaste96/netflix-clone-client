@@ -26,7 +26,7 @@ const Register = () => {
         </div>
       </div>
       <div className="container">
-        <h1>Unlimited Movies,TV shows and many more</h1>
+        <h1>Unlimited Movies,TV shows and Many more</h1>
         <h2>Wtach anywhere,Cancel anytime</h2>
         <p>
           Ready to waych Enter Your mail to create or restart your membership
