@@ -13,11 +13,19 @@ const Login = () => {
         </div>
       </div>
       <div className="container">
-        <h1>Unlimited Movies,TV shows and Many more</h1>
-        <h2>Wtach anywhere,Cancel anytime</h2>
-        <p>
-          Ready to waych Enter Your mail to create or restart your membership
-        </p>
+        <form>
+          <h1>Sign In</h1>
+          <input type="email" placeholder="email" />
+          <input type="password" placeholder="password" />
+          <button className="loginButton">Sign In</button>
+          <span>
+            New to Netflix? <b>Sign Up Now</b>{" "}
+          </span>
+          <small>
+            This page is protected by Google reCAPTCHA to ensure you're not a
+            bot <b>Learn More</b>{" "}
+          </small>
+        </form>
       </div>
     </div>
   );
