@@ -15,6 +15,12 @@ function App() {
         <Route exact path="/movies">
           <Home />
         </Route>
+        <Route exact path="/movies">
+          <Home />
+        </Route>
+        <Route exact path="/movies">
+          <Home />
+        </Route>
       </Switch>
     </div>
   );
