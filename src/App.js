@@ -13,10 +13,10 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/movies">
-          <Home />
+          <Home type="movies" />
         </Route>
-        <Route exact path="/movies">
-          <Home />
+        <Route exact path="/series">
+          <Home type="series" />
         </Route>
         <Route exact path="/movies">
           <Home />
