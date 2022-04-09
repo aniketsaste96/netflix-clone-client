@@ -1,8 +1,28 @@
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./featured.scss";
-
+import axios from "axios";
 const Featured = ({ type }) => {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGQxYWZkMDEyMTY4Mzc2MDhlNzVkOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkyMjA0MDksImV4cCI6MTY0OTY1MjQwOX0.dJLgIEUV775QgiXNaCdNmpvKiDdoxZDvslZzRt_0nw0",
+          },
+        });
+        setContent(res?.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRandomContent();
+  }, [type]);
+  console.log(content);
+
   return (
     <div className="featured">
       {type && (
@@ -27,16 +47,10 @@ const Featured = ({ type }) => {
         </div>
       )}
 
-      <img src="https://cdn.wallpapersafari.com/23/89/3Ubpz0.jpg" alt="" />
+      <img src={content?.img} alt="" />
       <div className="info">
-        <img height="30px" src="" alt="" />
-        <span className="desc">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
-          quo rerum magnam asperiores id pariatur quae sunt tempore quam ipsam
-          sit nihil consequuntur, non ullam odio dolore minus ipsa tempora,
-          dolores esse placeat, provident consequatur. Sit illum sed repellat
-          consectetur.
-        </span>
+        <img height="30px" src={content?.imgTitle} alt="" />
+        <span className="desc">{content?.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />
