@@ -2,7 +2,7 @@ import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import "./featured.scss";
 import axios from "axios";
-const Featured = ({ type }) => {
+const Featured = ({ type, setGenre }) => {
   const [content, setContent] = useState({});
 
   useEffect(() => {
@@ -28,7 +28,11 @@ const Featured = ({ type }) => {
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre">
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>

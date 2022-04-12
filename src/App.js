@@ -5,8 +5,10 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Watch from './pages/watch/Watch';
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./authContext/AuthContext"
 function App() {
-  const user = true;
+  const { user } = useContext(AuthContext);
   return (
     <div className="App">
       <Switch>
@@ -23,7 +25,7 @@ function App() {
         {user && (
           <>
             <Route exact path="/movies">
-              <Home type="movies" />
+              <Home type="movie" />
             </Route>
             <Route exact path="/series">
               <Home type="series" />
