@@ -32,19 +32,19 @@ const Login = () => {
 
       <div className="container">
         <form>
+          <p>email:aniketsaste96@gmail.com</p>
+          <p>password:123456</p>
           <h1>Sign In</h1>
 
           <input
             type="email"
             placeholder="email"
             onChange={(e) => setEmail(e.target.value)}
-            defaultValue="aniketsaste96@gmail.com"
           />
           <input
             type="password"
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
-            defaultValue="123456"
           />
           <button className="loginButton" onClick={handleLogin}>
             Sign In
