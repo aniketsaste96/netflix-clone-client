@@ -5,7 +5,7 @@ export const login = async (user, dispatch) => {
     dispatch(loginStart());
 
     try {
-        const res = await axios.post("auth/login", user);
+        const res = await axios.post("https://git.heroku.com/netflix-clone-mern-project.git/api/auth/login", user);
         dispatch(loginSuccess(res.data));
 
 

@@ -21,7 +21,10 @@ const Register = () => {
     setUsername(usernameRef.current.value);
     setPassword(passwordRef.current.value);
     try {
-      await axios.post("auth/register", { email, username, password });
+      await axios.post(
+        "https://netflix-clone-mern-project.herokuapp.com/api/auth/register",
+        { email, username, password }
+      );
       history.push("/login");
     } catch (error) {
       console.log(error);
