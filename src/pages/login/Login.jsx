@@ -47,7 +47,9 @@ const Login = () => {
           </button>
           <span>
             New to Netflix?{" "}
-            <b onClick={() => history.push("/register")}>Sign Up Now</b>{" "}
+            <button onClick={() => history.push("/register")}>
+              Sign Up Now
+            </button>{" "}
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
