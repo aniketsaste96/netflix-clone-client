@@ -8,6 +8,8 @@ import ListItem from "../listItem/ListItem";
 const List = ({ list }) => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [isMoved, setIsMoved] = useState(false);
+  const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
+
   const listRef = useRef();
   //its same like query selctor or select element by Id
   const handleClick = (direction) => {
@@ -17,7 +19,7 @@ const List = ({ list }) => {
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
       setSlideNumber(slideNumber - 1);
     }
-    if (direction === "right" && slideNumber < 5) {
+    if (direction === "right" && slideNumber < 10 - clickLimit) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
       setSlideNumber(slideNumber + 1);
     }

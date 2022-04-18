@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./register.scss";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,14 +36,20 @@ const Register = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
           />
-          <button className="loginButton">Sign In</button>
+          <Button
+            className="loginButton"
+            onClick={() => history.push("/login")}
+            style={{ cursor: "pointer" }}
+          >
+            Sign Inn
+          </Button>
         </div>
       </div>
       <div className="container">
         <h1>Unlimited Movies,TV shows and Many more</h1>
         <h2>Wtach anywhere,Cancel anytime</h2>
         <p>
-          Ready to waych Enter Your mail to create or restart your membership
+          Ready to watch Enter Your mail to create or restart your membership
         </p>
         {!email ? (
           <div className="input">

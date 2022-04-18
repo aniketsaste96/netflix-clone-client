@@ -18,7 +18,7 @@ const ListItem = ({ index, item }) => {
         const res = await axios.get("/movies/find/" + item, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNGQxYWZkMDEyMTY4Mzc2MDhlNzVkOCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NDkyMjA0MDksImV4cCI6MTY0OTY1MjQwOX0.dJLgIEUV775QgiXNaCdNmpvKiDdoxZDvslZzRt_0nw0",
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setMovie(res.data);
@@ -37,11 +37,21 @@ const ListItem = ({ index, item }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={movie.img} alt="" />
+        <img src={movie?.img} alt="" />
 
         {isHovered && (
           <>
-            <video src={movie.trailer} autoPlay={true} loop controls />
+            {/* <video src={movie?.trailer} autoPlay={true} loop controls /> */}
+            <iframe
+              width="713"
+              height="401"
+              src={movie?.trailer}
+              title="YouTube video player"
+              frameBorder="0"
+              autoPlay={true}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
 
             <div className="itemInfo">
               <div className="icons">
@@ -51,12 +61,12 @@ const ListItem = ({ index, item }) => {
                 <ThumbDownAltOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>{movie.duration}</span>
-                <span className="limit">{movie.limit}</span>
-                <span>{movie.year}</span>
+                <span>{movie?.duration}</span>
+                <span className="limit">{movie?.limit}</span>
+                <span>{movie?.year}</span>
               </div>
-              <div className="desc">{movie.desc}</div>
-              <div className="genre">{movie.genre}</div>
+              <div className="desc">{movie?.desc}</div>
+              <div className="genre">{movie?.genre}</div>
             </div>
           </>
         )}
