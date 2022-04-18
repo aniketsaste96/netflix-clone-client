@@ -2,7 +2,9 @@ import React, { useRef, useState, useContext } from "react";
 import { login } from "../../authContext/apiCalls";
 import { AuthContext } from "../../authContext/AuthContext";
 import "./login.scss";
+import { useHistory } from "react-router-dom";
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { dispatch } = useContext(AuthContext);
@@ -44,7 +46,8 @@ const Login = () => {
             Sign In
           </button>
           <span>
-            New to Netflix? <b>Sign Up Now</b>{" "}
+            New to Netflix?{" "}
+            <b onClick={() => history.push("/register")}>Sign Up Now</b>{" "}
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
