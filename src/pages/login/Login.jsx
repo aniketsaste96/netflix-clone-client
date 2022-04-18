@@ -32,6 +32,8 @@ const Login = () => {
       <div className="container">
         <form>
           <h1>Sign In</h1>
+          <p> email:-aniketsaste96@gmail.com</p>
+          <p>password:-123456</p>
           <input
             type="email"
             placeholder="email"
@@ -47,9 +49,7 @@ const Login = () => {
           </button>
           <span>
             New to Netflix?{" "}
-            <button onClick={() => history.push("/register")}>
-              Sign Up Now
-            </button>{" "}
+            <b onClick={() => history.push("/register")}>Sign Up Now</b>{" "}
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
